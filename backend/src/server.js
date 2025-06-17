@@ -18,7 +18,10 @@ const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
 app.use(
-  cors()
+  cors({
+    origin: process.env.FRONT,
+    credentials: true, // allow frontend to send cookies
+  })
 );
 
 app.use(express.json());
